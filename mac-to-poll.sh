@@ -8,7 +8,7 @@ AFLAG=false
 FFLAG=false
 SFLAG=false
 BATCH="deferred"
-declare -a APPS=("UPD" "PhoenixC" "CUPN" "STORE" "PARAM" "Volume" "XCDS" "APPS" "QCDS" "DXGROUP" "EDIACCT" "EDIACCT" "CUST" "MSAVEND" "SizeCodeMaintenance" "MfgMaintenance" "Cust" "PRICE-1.0" "PRICE-2.0" "ProductMaintenance" "storeStaffing" "SYSCTL" "TinterVersion" "DNRETURN")
+declare -a APPS=("UPD" "PhoenixC" "CUPN" "STORE" "PARAM" "Volume" "XCDS" "APPS" "QCDS" "DXGROUP" "EDIACCT" "EDIACCT" "Cust" "MSAVEND" "SizeCodeMaintenance" "MfgMaintenance" "Cust" "PRICE-1.0" "PRICE-2.0" "ProductMaintenance" "storeStaffing" "SYSCTL" "TinterVersion" "DNRETURN")
 
 contains (){
   local e
