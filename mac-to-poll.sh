@@ -1,5 +1,5 @@
 #!/bin/bash
-SERVER="http://smisdev.sherwin.com/polling" #Default to dev
+SERVER="http://pollingdev.sherwin.com/polling" #Default to dev
 
 N=`tput sgr0`
 B=`tput bold`
@@ -49,13 +49,13 @@ fi
 while getopts ":dqpa:f:s:h:x:t:r:e:o:" opt; do
   case $opt in 
     d) 
-      SERVER="https://smisdev.sherwin.com/polling"
+      SERVER="https://pollingdev.sherwin.com/polling"
       ;;
     q)
-      SERVER="https://smisqa.sherwin.com/polling"
+      SERVER="https://pollingqa.sherwin.com/polling"
       ;;
     p) 
-      SERVER="https://smis.sherwin.com/polling"
+      SERVER="https://polling.sherwin.com/polling"
       ;;
     a) 
       AFLAG=true;APP_NM=${OPTARG}
@@ -162,10 +162,6 @@ fi
 echo ""
 USER="--user SYSCTL:abc123 -k"
 
-#if [ $SERVER != "https://smisdev.sherwin.com/polling" ]; then
-#  read -s -p "Enter password for ${APP_NM}: " PASS
-#  USER="--user ${APP_NM}:${PASS} -k"
-#fi 
 
 PARMS="{"
 
@@ -208,11 +204,10 @@ PARMS="${PARMS}}"
 
 STRING="${SERVER}/v1/app/${APP_NM}"
 JSON=`curl $USER -X POST -H "Accept: application/json" $STRING`
-REQID=`echo $JSON | cut -d\" -f78`
+REQID=`echo $JSON | cut -d\" -f4`
 BASESTRING="${SERVER}/v1/${REQID}"
 OPS="${BASESTRING}/operations"
 STR="${BASESTRING}/stores"
-
 
 echo ""
 echo "Request $REQID generated"
